@@ -4,11 +4,11 @@
 
 ### 1. 2557번 문제 : Hello World! 출력 
 
-![2557.1](BACKJOON Coding Test Practice.assets/2557.1.PNG)
+![2557.1](image/1.2557/2557.1.PNG)
 
-![2557.2](BACKJOON Coding Test Practice.assets/2557.2.PNG)
+![2557.2](image/1.2557/2557.2.PNG)
 
-![2557.3](BACKJOON Coding Test Practice.assets/2557.3.PNG)
+![2557.3](image/1.2557/2557.3.PNG)
 
 [백준 2557번 문제 출처](https://www.acmicpc.net/problem/2557)
 
