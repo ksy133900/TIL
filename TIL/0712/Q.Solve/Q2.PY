@@ -1,5 +1,5 @@
-word = 'happy!'
-length=0
-for a in word:
-    length=length+1
-print(length)
+#문자열의 길이 구하기
+x = 0
+for i in 'happy!':
+    x+=1
+print(x)
