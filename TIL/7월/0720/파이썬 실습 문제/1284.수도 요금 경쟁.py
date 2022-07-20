@@ -1,6 +1,5 @@
-import sys
-sys.stdin = open("input.txt", "r")
-
+#import sys
+#sys.stdin = open("1284.txt", "r")
 T=int(input())
 for a in range(0,T):
     P, Q, R, S, W = map(int,input().split()) #!  설명한 대로 P, Q, R, S, W(1 ≤ P, Q, R, S, W ≤ 10000, 자연수)가 순서대로 공백 하나로 구분되어 주어진다
