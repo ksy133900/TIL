@@ -1,6 +1,9 @@
 import sys
 sys.stdin = open("책더미.txt", "r")
 
+import sys
+input = sys.stdin.readline # 붙이면 시간초과 없어짐;
+
 a , b = map(int,input().split()) # 4,2
 result = ''
 
@@ -15,7 +18,7 @@ for j in range(b):
     z = sorted(y, reverse=True)
     if y == z :
         result = 'YES'
-        
+
     else :
         result = 'NO'
         

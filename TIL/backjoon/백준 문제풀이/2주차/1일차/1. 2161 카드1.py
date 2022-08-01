@@ -1,4 +1,3 @@
-
 N = int(input())
 numbers = [] 
 garbage = [] # 버린 숫자들 들어갈 리스트
@@ -25,4 +24,5 @@ print(numbers[0]) # 마지막에 남는 카드의 숫자를 출력 (6)
 #5 numbers = [6,2] , garbage = [1,3,5,7,4] ------- numbers = [2,6] ,garbage = [1,3,5,7,4]
 
 #6 numbers = [6] , garbage = [1,3,5,7,4,2] ------- numbers = [6] , garbage = [1,3,5,7,4,2]
+
 # len(numbers) = 1 로 while의 조건에 false이므로.. 반복 종료
