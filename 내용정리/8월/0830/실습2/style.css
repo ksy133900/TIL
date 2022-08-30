@@ -1,0 +1,26 @@
+/* 아래에 CSS를 작성해주세요. */
+.card{
+    width: 300px;
+}
+.chair{
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 5px; 
+}
+
+.font-c{
+    line-height: 3px;
+    font-size: 15px;
+}
+
+.font-a{
+    color: gray;
+    color: rgba(119, 119, 119, 0.945); 
+}
+
+.font-b{
+    line-height: 3px;
+    font-size: 20px;
+    color: skyblue;
+}
+
