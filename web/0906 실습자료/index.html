@@ -16,7 +16,7 @@
           <div class="ms-5">
           <label for="inputEmail4" class="form-label">이메일</label>
           <input type="email" class="form-control" id="inputEmail4">
-          <p class="text-secondary">가입시 활용한 이메일 주소를 작성해주세요</p>
+          <div id="emailHelp" class="form-text">가입시 활용할 이메일 주소를 작성해주세요.</div>
         </div>
         </div>
         <div class="mb-3">
@@ -29,7 +29,7 @@
           <div class="ms-5">
             <label for="inputPassword5" class="form-label">비밀번호 확인</label>
             <input type="password" class="form-control" id="inputPassword4">
-            <p class="text-secondary">비밀번호를 동일하게 작성해주세요.</p>
+            <div id="emailHelp" class="form-text">비밀번호를 동일하게 작성해주세요.</div>
           </div>
         </div>
         <div class="mb-3">
@@ -48,9 +48,11 @@
             </div>
           </div>
         </div>
-        <div class="col-12">
-          <div class="ms-5">
-            <button type="submit" class="btn btn-primary btn-lg mt-5" onclick="alert('회원가입이 완료되었습니다.')">가입신청</button>
+        <div class="col-12 ">
+          <div class="ms-5 ">
+            <button type="submit" class="btn btn-primary btn-lg mt-2" onclick="alert('회원가입이 완료되었습니다.')">
+              <a class="sign_txt" href="nav.html">가입 신청</a>
+            </button>
           </div>
         </div>
       </form>
