@@ -2,3 +2,6 @@
 
 > javascript
 
+[2022년 9월 16일](0916/0916.md)
+
+> javascript (문법)
