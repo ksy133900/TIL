@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+.carousel-wrapper {
+  width: 600px;
+  height: 600px;
+  overflow: hidden;
+  object-fit:cover
+}
+
+.carousel-wrapper > .carousel {
+  display: flex;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.2s;
+}
+
+.carousel-wrapper > .carousel > img {
+  width: 600px;
+  height: 600px;
+}
