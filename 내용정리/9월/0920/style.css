@@ -1,0 +1,40 @@
+.lotto-box {
+    margin: 10px 0;  
+    padding: 3px;
+    background: beige;
+    min-height: 50px;
+  }
+  .lotto-line {
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+  }
+  .lotto-line-5th {
+    border-bottom: 2px solid gray;
+  }
+  .lotto-line:last-child {
+    border: none;
+  }
+  .lotto-ball {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: top;
+    margin-right: 5px;
+  }
+  .lotto-number {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  .lotto-btn { 
+    padding: 5px 12px;
+  }
+  .ex{
+    display: flex;
+  }
