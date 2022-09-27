@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<!-- practices/base.html의 내용을 상속받는다.-->
+{% block content %}
+
+
+<div class="text-white">
+    <h1 class="text-white">방명록</h1>
+</div>
+<div class="text-white">
+    <h2> 글 목록 </h2>
+    {% for content in guestbook %}
+    <p>{{content.content}}</p>
+    {% endfor %}
+
+</div>
+<div>
+    <h2 class="text-white"> 글 작성 </h2>
+    <form action="/articles/create/" method="GET">
+        <input type="text" name="content" id="">
+        <input type="submit">
+
+    </form>
+
+</div>
+
+
+{% endblock %}
