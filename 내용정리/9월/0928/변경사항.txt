@@ -1,0 +1,13 @@
+html 및 urls.py 내용 변경
+<form action="{% url 'index' %}"
+<form action="{% url 'create' %}"
+name = 'index'
+name = 'create'
+
+각 app의 urls.py에 app_name 추가
+app_name = "articles"
+app_name = "practieces"
+
+articles의 html url에 namespace 추가
+{% url 'articles:index' %}
+{% url 'articles:create' %}

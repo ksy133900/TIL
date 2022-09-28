@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+<!-- practices/base.html의 내용을 상속받는다.-->
+{% block content %}
+<div class="text-white">
+    <h1> 작성 완료. </h1>
+    <p>작성 내용: {{content}}</p>
+    <a href="{% url 'articles:index' %}">방명록으로 돌아가기</a>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
