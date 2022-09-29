@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>작성 완료</h1>
+
+    <p>할 일: {{ todo.content }}</p>
+    <p>우선 순위: {{ todo.priority }}</p>
+    <p>마감 기한: {{todo.deadline}}</p>
+
+    <a href="{% url 'todo:index' %}">목록으로</a>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

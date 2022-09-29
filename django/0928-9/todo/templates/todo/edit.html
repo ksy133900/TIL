@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+
+    <title>edit/title</title>
+</head>
+
+
+<body>
+    <h1 class="text-center">Todo list</h1>
+    <div class="col-md-12">
+        <div class="container">
+            <h1>일정 수정</h1>
+            <form action="{% url 'todo:update' todo.pk %}">
+
+                <form action="{% url 'todo:create' %}">
+                    할 일<input class="form-control" input type="text" name="content" maxlength="80">
+                    우선 순위<select class="form-select" name="priority">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                    <!-- <input class="form-control" input type="text" name="priority" maxlength="80"></p> -->
+                    마감 기한<input class="form-control" input type="date" name="deadline" maxlength="80"></p>
+                    <button type="submit" class="btn btn-primary mb-3">할 일 추가</button>
+
+                </form>
+</body>
+
+
+
+
+
+
+</body>
+
+</html>

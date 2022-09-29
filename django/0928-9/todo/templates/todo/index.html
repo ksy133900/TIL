@@ -1,37 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
 
     <title>Todo_index</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
-<body>
+<div class="d-flex my-4 container border border-dark rounded text-bg-secondary ">
+    <div class="col-md-12">
 
-    <form action="{% url 'todo:create' %}">
-        <p class="text-white">할 일<input type="text" name="content" maxlength="80"></p>
-        <p class="text-">우선 순위<input type="text" name="priority" maxlength="80"></p>
-        <p>마감 기한<input type="text" name="deadline" maxlength="80"></p>
-        <input type="submit" value="할 일 추가">
-    </form>
-    <hr>
-    <ul>
-        {% for todo in todos %}
-        <li>{{todo.id}} - {{todo.content}} - {{todo.priority}} - {{todo.deadline}}
-            <a href="/todo/delete/{{ todo.pk }}">
-                [삭제]
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
+        <h1 class="text-center">Todo list</h1>
 
-    <hr>
-</body>
+        <body>
+
+            <div class="col-md-12">
+
+                <div class="container bol">
+                    <form action="{% url 'todo:create' %}">
+                        할 일<input class="form-control" input type="text" name="content" maxlength="80">
+                        우선 순위<select class="form-select" name="priority">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+
+                        <!-- <input class="form-control" input type="text" name="priority" maxlength="80"></p> -->
+                        마감 기한<input class="form-control" input type="date" name="deadline" maxlength="80"></p>
+                        <button type="submit" class="btn btn-primary mb-3">할 일 추가</button>
+
+                    </form>
+                    <hr>
+                    <table class="table table-bordered">
+                        {% for todo in todos %}
+
+
+                        <tr class="text-center">
+                            <th><strong>우선 순위</strong></th>
+                            <th>할 일</th>
+                            <th>생성 날짜</th>
+                            <th>마감 기한</th>
+                            <th>진행 상태</th>
+                            <th>상태 변경</th>
+                            <th>내용 수정</th>
+                            <th>삭제</th>
+                        </tr>
+                        {% if todo.completed == True %}
+                        <del>
+                            <tr class="text-center text-white">
+                                <td class="text-center">{{todo.priority}}</td>
+                                <td>{{todo.content}}</td>
+                                <td>{{todo.created_at}}</td>
+                                <td>{{todo.deadline}}</td>
+                                <td>{{todo.completed}}</td>
+
+
+                                <td><button type="button" class="btn btn-dark">
+                                        <a class="text-white" href="{% url 'todo:complete' todo.pk %}">변경</a></button>
+                                </td>
+
+                                <td><button type="button" class="btn btn-primary">
+                                        <a class="text-white" href="{% url 'todo:edit' todo.pk %}">
+                                            수정
+                                        </a></button>
+                                </td>
+                                <td><button type="button" class="btn btn-danger"><a class="text-white"
+                                            href="{% url 'todo:delete' todo.pk %}">
+                                            삭제</a></button>
+                        </del>
+                        {% else %}
+                        <tr class="text-center text-white">
+                            <td class="text-center">{{todo.priority}}</td>
+                            <td>{{todo.content}}</td>
+                            <td>{{todo.created_at}}</td>
+                            <td>{{todo.deadline}}</td>
+                            <td>{{todo.completed}}</td>
+
+                            <td><button type="button" class="btn btn-dark">
+                                    <a class="text-white" href="{% url 'todo:complete' todo.pk %}">변경</a></button>
+                            </td>
+
+                            <td><button type="button" class="btn btn-primary">
+                                    <a class="text-white" href="{% url 'todo:edit' todo.pk %}">
+                                        수정
+                                    </a></button>
+                            </td>
+                            <td><button type="button" class="btn btn-danger"><a class="text-white"
+                                        href="{% url 'todo:delete' todo.pk %}">
+                                        삭제</a></button>
+                            </td>
+                            {% endif %}
+                        </tr>
+
+
+                        {% endfor %}
+                    </table>
+
+                    <hr>
+                </div>
+            </div>
+    </div>
+
+    </body>
+
 
 </html>
