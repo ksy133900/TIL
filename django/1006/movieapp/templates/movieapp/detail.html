@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container-lg my-4">
+
+    <h2>
+      상영 시간 :
+      {{ movie.running_time }}분
+    </h2>
+
+    <h2 class="my-4 py-4">제목 :
+      {{movie.title}}</h2>
+    <h2>내용</h2>
+
+    <div class="card mb-4" style="width: 650px; height:550px;">
+      <div class="card-body">
+        <p class="card-text fs-3">{{ movie.summary }}</p>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary">
+      <a class="text-white" href="{% url 'movieapp:update' movie.pk %}">
+        수정
+      </a>
+    </button>
+  </td>
+  <button type="button" class="btn btn-danger">
+    <a class="text-white" href="{% url 'movieapp:delete' movie.pk %}">
+      삭제</a>
+  </button>
+
+  <button type="button" class="btn btn-dark">
+    <a class="text-white" href="{% url 'movieapp:index'%}">홈으로</a>
+  </button>
+
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div class="container mx-4 my-4">
+  <form action="{% url 'movieapp:create' %}" method="POST">
+  {% csrf_token %}
+  {% bootstrap_form movie_form %}
+
+
+  {% bootstrap_button button_type="submit" content="OK" %}
+</form>
+
+  <p><button class="my-3"><a href="{% url 'movieapp:index' %}">목록으로</a></button>
+</div>
+
+{% endblock %}

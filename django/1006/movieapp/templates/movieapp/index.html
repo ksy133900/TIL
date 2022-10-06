@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div class="container mt-5">
+    <div class="col-md-12">
+
+        <h1 class="text-center my-4">영화 정보 커뮤니티</h1>
+
+        <body>
+
+            <div class="col-md-12">
+
+                <div class="container ">
+
+
+
+                    <table class="table table-bordered">
+                        <tr>
+                            <thead class="table-dark text-center fs-4">
+                                <th>영화 번호</th>
+                                <th>영화 제목</th>
+                                <th>상영 시간</th>
+                            </thead>
+                        </tr>
+                        <tbody>
+                            {% for m in movie %}
+                            <tr class="text-center">
+                                <td class="fs-4">{{m.id}}</td>
+                                <td><a class="fs-4" href="{% url 'movieapp:detail' m.pk  %}">{{m.title}}</a></td>
+                                <td class="fs-4">{{m.running_time}}</td>
+                            </tr>
+                            
+                        </tbody>
+
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
