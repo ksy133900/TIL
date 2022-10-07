@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="col-md-14 mx-4 my-4">
+
+    <div class="container ">
+      {% load static %}
+      <p style="text-align: center;"><img src="{% static '1456684.png' %}" alt="movie" width="300"></p>
+
+      <table class="table table-bordered">
+        <tr>
+          <thead class="table-dark text-center fs-4">
+
+            <th>number</th>
+            <th>title</th>
+            <th>movie name</th>
+            <th>grade</th>
+            <th>create</th>
+            <th>update</th>
+          </thead>
+        </tr>
+        <tbody>
+          {% for r in review %}
+            <tr class="text-center">
+              <td class="fs-4 text-light">{{r.id}}</td>
+              <td>
+                <a class="fs-4 text-light" href="{% url 'review:detail' r.pk  %}">{{r.title}}</a>
+              </td>
+              <td class="fs-4 text-light">{{r.movie_name}}</td>
+              <td class="fs-4 text-light">{{r.grade}}</td>
+              <td class="fs-4 text-light">{{r.created_at}}</td>
+              <td class="fs-4 text-light">{{r.updated_at}}</td>
+            </tr>
+
+          </tbody>
+
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+{% endblock %}
