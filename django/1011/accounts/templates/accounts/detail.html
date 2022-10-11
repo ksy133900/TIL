@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>{{user.username}}님의 페이지</title>
+{% endblock title %}
+
+{% block body %}
+  <h1 class="mb-4">{{ user.username }}님의 프로필</h1>
+
+  <h2>안녕하세요
+    {{user.username}}입니다.<h2>
+
+       <img src="https://i.pinimg.com/564x/40/dc/35/40dc35f144db1b3a280fc599a1886e7d.jpg" alt=""> 
+
+
+    {% endblock body %}
