@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>회원 목록</title>
+{% endblock title %}
+
+{% block body %}
+  <h1 class="text-center my-4">회원 목록</h1>
+
+  <div class="col-md-12">
+
+    <div class="container ">
+
+      <table class="table table-bordered">
+        <tr>
+          <thead class="table-dark text-center fs-4">
+            <th>pk</th>
+            <th>username</th>
+            <th>email</th>
+          </thead>
+        </tr>
+        <tbody>
+          {% for u in user %}
+            <tr class="text-center">
+              <td class="fs-4">{{u.pk}}</td>
+              <td>
+                <a class="fs-4 text-decoration-none" href="{% url 'accounts:detail' u.pk  %}">{{u.username}}</a>
+              </td>
+              <td class="fs-4">{{u.email}}</td>
+            </tr>
+
+          </tbody>
+
+        {% endfor %}
+      </table>
+      <div class="d-grid gap-2">
+        <button type="button" class="btn btn-dark mb-2">
+          <a class="text-white fs-4 text-decoration-none" href="{% url 'accounts:signup' %}">회원 가입</a>
+        </button>
+        <p>
+          <button type="button" class="btn btn-secondary mt-3 mb-2">
+            <a class="text-white text-decoration-none" href="{% url 'accounts:index' %}">홈으로</a>
+          </button>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock body %}

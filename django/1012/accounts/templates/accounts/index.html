@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1 class="text-center mt-5 text-success">Hello!</h1>
+
+  <div class="text-end">
+
+   
+    {% if request.user.is_authenticated %}
+
+  
+    <span><strong>{{request.user}}</a>님 환영합니다</strong></span>
+    <button type="button" class="btn btn-dark mb-2">
+      <a class="text-white text-decoration-none" href="{% url 'accounts:logout' %}">
+      로그아웃</a></button>
+  {% else %}
+    <button type="button" class="btn btn-dark mb-2">
+      <a class="text-white text-decoration-none" href="{% url 'accounts:login' %}">
+      로그인</a></button></div>
+  {% endif %}
+
+  <div class="d-grid gap-2">
+    <button type="button" class="btn btn-dark mb-2">
+      <a class="text-white fs-4 text-decoration-none" href="{% url 'accounts:signup' %}">회원 가입</a>
+    </button>
+
+    <div class="d-grid gap-2">
+      <button type="button" class="btn btn-dark mb-2">
+        <a class="text-white fs-4 text-decoration-none" href="{% url 'accounts:list' %}">회원 목록</a>
+      </button>
+
+    {% endblock body %}
