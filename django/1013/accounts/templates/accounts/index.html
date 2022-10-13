@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block title %}
+  <title>HOME</title>
+{% endblock title %}
+
+{% block body %}
+  <h1 class="text-center mt-5 text-success">Hello!</h1>
+
+  {% if user.is_authenticated %}
+
+  <div class="d-grid gap-2">
+    <button type="button" class="btn btn-dark mb-2">
+      <a class="text-white fs-4 text-decoration-none" href="{% url 'accounts:list' %}">회원 목록</a>
+    </button>
+    {% else %} 
+    <div class="d-grid gap-2">
+      <button type="button" class="btn btn-dark mb-2">
+        <a class="text-white fs-4 text-decoration-none" href="{% url 'accounts:signup' %}">회원 가입</a>
+      </button>
+      {% endif %}
+
+
+      {% endblock body %}
+
+
+ 

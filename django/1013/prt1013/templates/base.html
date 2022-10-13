@@ -1,0 +1,64 @@
+{% load django_bootstrap5 %}
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock title%}
+
+    {% bootstrap_css %}
+    {% block css %}{% endblock css %}
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+        <ul class="navbar-nav me-auto mb-lg-0">
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a class="navbar-brand fw-bold m-0" href="{% url 'accounts:detail' user.pk %}">{{ request.user.username }}</a>
+          
+          <li class="nav-item mx-2">
+            <button type="button" class="btn btn-dark">
+                <a class="text-white text-decoration-none" href="{% url 'accounts:update' %}">
+                  정보수정</a>
+              </button></li>
+              <li class="nav-item me-2">
+                <button type="button" class="btn btn-dark">
+                    <a class="text-white text-decoration-none" href="{% url 'accounts:change_password' %}">
+                      비밀번호 변경</a>
+                  </button></li>
+              
+        {% else %}
+        <li class="nav-item mx-2"><a class="navbar-brand fw-bold" href="#">비회원</a></li>
+         
+        {% endif %}
+   
+
+
+        {% if request.user.is_authenticated %}
+       <li vlass="nav-item"> <button type="button" class="btn btn-dark">
+          <a class="text-white text-decoration-none" href="{% url 'accounts:logout' %}">
+            로그아웃</a>
+        </button>
+        {% else %}
+        <button type="button" class="btn btn-dark">
+          <a class="text-white text-decoration-none" href="{% url 'accounts:login' %}">
+            로그인</a>
+        </button></li>
+    
+      </div>
+    {% endif %}
+</ul>
+  </div>
+</nav>
+
+<div class="container mt-5 col-12">
+
+  {% block body %}{% endblock body %}
+</div>
+{% bootstrap_javascript %}
+</body>
+
+</html>
