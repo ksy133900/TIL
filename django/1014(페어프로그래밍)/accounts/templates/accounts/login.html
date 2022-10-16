@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+  <title>로그인</title>
+{% endblock title %}
+
+{% block body %}
+<h1>로그인</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="OK" %}
+    
+</form>
+<button type="button" class="btn btn-dark mt-3">
+    <a class="text-white text-decoration-none text-end" href="{% url 'accounts:signup' %}">회원 가입</a>
+  </button>
+  <p><button type="button" class="btn btn-secondary mt-3 mb-2">
+    <a class="text-white text-decoration-none" href="{% url 'accounts:index' %}">홈으로</a>
+        </button></p>
+
+{% endblock body %}

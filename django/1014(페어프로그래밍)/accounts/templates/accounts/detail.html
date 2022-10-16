@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>{{user.username}}님의 페이지</title>
+{% endblock title %}
+
+{% block body %}
+  <h1 class="mb-4">{{ user.username }}님의 프로필</h1>
+
+  <h2>안녕하세요
+    {{ user.last_name }}{{ user.first_name }}입니다.<h2>
+      <h2>{{user.email}}</h2>
+
+      <img src="https://i.pinimg.com/564x/40/dc/35/40dc35f144db1b3a280fc599a1886e7d.jpg" alt="">
+
+      <p>
+        <button type="button" class="btn btn-secondary mt-3 mb-2">
+          <a class="text-white text-decoration-none" href="{% url 'accounts:index' %}">홈으로</a>
+        </button>
+      </p>
+
+    {% endblock body %}

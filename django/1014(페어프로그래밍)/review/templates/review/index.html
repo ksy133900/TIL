@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+  {% for r in review %}
+    <div class="accordion" id="accordionExample">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+
+            {{r.pk}}
+            :
+            {{r.title}}
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>
+              <strong>영화제목:
+                {{r.movie_name}}</strong>
+            </p>
+            <p>{{r.content}}</p>
+            <a class="text-decoration-none text-right text-end text-hover" href="{% url 'review:detail' r.pk %}">상세 보기</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  {% endfor %}
+
+  <button type="button" class="btn btn-secondary text-end mt-3 mb-2">
+    <a class="nav-link fw-bold active fs-5 text-end" href="{% url 'review:create' %}">리뷰 추가</a>
+  </button>
+</div>
+
+</div>
+
+{% endblock body %}

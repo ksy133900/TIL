@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block title %}
+  <title>HOME</title>
+{% endblock title %}
+
+{% block body %}
+  <h1 class="text-center mt-5 text-success">Hello!</h1>
+
+
+    <h1 class="text-center my-4">회원 목록</h1>
+     <div class="col-12">
+      <table class="table table-bordered">
+        <tr>
+         <thead class="table-dark text-center fs-4">
+          <th>pk</th>
+          <th>username</th>
+          <th>email</th>
+          <th>first_name</th>
+          <th>last_name</th>
+         </thead>
+        </tr>
+        <tbody>
+          {% for u in user %}
+            <tr class="text-center">
+              <td class="fs-4">{{u.pk}}</td>
+              <td>
+                <a class="fs-4 text-decoration-none" href="{% url 'accounts:detail' u.pk  %}">{{u.username}}</a>
+              </td>
+              <td class="fs-4">{{u.email}}</td>
+              <td class="fs-4">{{u.first_name}}</td>
+              <td class="fs-4">{{u.last_name}}</td>
+            </tr>
+        </tbody>
+
+        {% endfor %}
+      </table>
+
+      {% if request.user.is_authenticated %}
+      <button type="button" class="btn btn-dark mt-2 mb-2">
+        <a class="text-white text-decoration-none" href="{% url 'review:index' %}">리뷰목록</a>
+            </button>
+      {% endif %}      
+
+
+  {% endblock body %}
