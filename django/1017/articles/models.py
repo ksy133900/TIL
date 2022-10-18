@@ -5,7 +5,7 @@ from imagekit.processors import Thumbnail
 # Create your models here.
 
 
-class Profile(models.Model):
+class Article(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField()
     image = models.ImageField(upload_to="images/", blank=True)

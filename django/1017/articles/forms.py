@@ -1,8 +1,8 @@
-from .models import Profile
+from .models import Article
 from django import forms
 
 
-class ProfileForm(forms.ModelForm):
+class ArticleForm(forms.ModelForm):
     class Meta:
-        model = Profile
+        model = Article
         fields = "__all__"
