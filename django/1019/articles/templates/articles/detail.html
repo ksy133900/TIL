@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block body %} 
+<h1>{{ article.title }}</h1>
+<p>{{ article.pk }}번 게시글</p>
+<h3><a href="{% url 'accounts:detail' article.user.pk %}">{{ article.user.username }}</a></h3>
+<p>{{ article.created_at|date:"SHORT_DATETIME_FORMAT" }} | {{ article.updated_at|date:"y-m-d D" }}</p>
+<p>{{ article.content }} </p>
+
+<div style="text-align : center;">
+{% if article.image %}
+    <img class="m-auto" src="{{ article.images.url }}" alt="{{ article.images.url }}" width="900">
+{% endif %}
+</div>
+{% if request.user == article.user %}
+<p>
+    <a class="btn btn-secondary mt-2"href="{% url 'articles:update' article.pk %}">수정하기</a>
+    <a class="btn btn-danger mt-2" href="{% url 'articles:delete' article.pk %}">삭제</a>
+</p>
+{% endif %}
+<h4 class="my-3">댓글</h4>
+{% if request.user.is_authenticated %}
+<form action="{% url 'articles:comment_create' article.pk %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form comment_form layout='inline'%}
+    {% bootstrap_button button_type="submit" content="OK" %}
+</form>
+{% endif %}
+<hr>
+{% for comment in comments %}
+    <p> {{ comment.user.username }} | {{ comment.content }}</p>
+    <hr>    
+{% empty %}
+    <p>댓글이 없어요 ㅠ_ㅠ</p>
+{% endfor %}
+
+</div>
+{% endblock %}
