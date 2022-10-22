@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+
+{% block body %}
+
+<h1 class="my-4 text-center">영화 리뷰 커뮤니티</h1>
+  {% for review in reviews %}
+    <div class="accordion" id="heading-{{ forloop.counter }}">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading-{{ forloop.counter }}">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-parent="#accordion" data-bs-target="#collapse-{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse-{{ forloop.counter }}">
+            {{review.title}}
+          </button>
+        </h2>
+        <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ forloop.counter }}" data-bs-parent="#accordionExample">
+          
+          <div class="accordion-body">
+            <p>
+              <strong>영화명:
+                {{r.movie_name}}</strong>
+            </p>
+            <p class="text-muted">
+              글쓴이: <a href="{% url 'accounts:detail' review.user.pk %}">{{ review.user.username }}</a>
+              </p>
+              
+            <a class="text-decoration-none text-right text-end text-hover" href="{% url 'review:detail' review.pk %}">리뷰 보기</a></p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  {% endfor %}
+
+  <button type="button" class="btn btn-secondary text-end mt-3 mb-2">
+    <a class="nav-link fw-bold active fs-5 text-end" href="{% url 'review:create' %}">리뷰 추가</a>
+  </button>
+</div>
+
+</div>
+
+{% endblock body %}

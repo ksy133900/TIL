@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block body %}
+  <div class="container-lg my-4">
+    <h1 class="my-3">{{review.title}}</h1>
+    <h2 class="">영화 제목 :
+      {{review.movie_name}}
+      // 평점 :
+      {{review.grade}}
+    </h2>
+
+      <div style="text-align : center;">
+        {% if review.image %}
+            <img class="my-3" src="{{ review.image.url }}" alt="{{ review.image.url }}" width="800">
+        {% endif %}
+        </div>
+        <p>{{ review.content }}</p>
+        <div style="text-align : right;">
+    {% if request.user == review.user %}
+    <button type="button" class="btn btn-secondary">
+      <a class="text-white text-decoration-none" href="{% url 'review:update' review.pk %}">
+        수정
+      </a>
+    </button>
+    <button type="button" class="btn btn-danger">
+      <a class="text-white text-decoration-none" href="{% url 'review:delete' review.pk %}">
+        삭제
+      </a>
+    </button>
+    {% endif %}
+
+    </div>
+
+    <h4 class="my-3">댓글</h4>
+    {% if request.user.is_authenticated %}
+    <form action="{% url 'review:comment_create' review.pk %}" method="POST">
+        {% csrf_token %}
+        <p>{% bootstrap_form comment_form layout='inline'%}</p>
+        <div style="text-align : right;">
+        <p>{% bootstrap_button button_type="submit" content="작성" %}</p>
+        </div>
+    </form>
+    {% endif %}
+    <hr>
+    {% for comment in comments %}
+        <p> {{ comment.user.username }} | {{ comment.content }}</p> 
+        {% if request.user == comment.user %}
+            <p><form action="{% url 'review:comment_delete' review.pk comment.pk %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="DELETE">
+        </form></p>
+        {% endif %}
+        <hr>    
+    {% empty %}
+        <p>댓글이 없습니다.</p>
+    {% endfor %}
+    
+    </div>
+    {% endblock body %}
