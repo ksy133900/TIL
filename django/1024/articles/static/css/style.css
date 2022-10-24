@@ -1,0 +1,7 @@
+.header {
+    height: 20rem;
+    background-image: url('/static/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5);
+}
