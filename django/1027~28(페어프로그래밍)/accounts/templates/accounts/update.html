@@ -1,47 +1,16 @@
-
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
 
 {% block body %}
 <div class="container m-auto">
     <div class="col-md-8" style="float: none; margin:0 auto;">
-
-<h1>로그인</h1>
-
-
-
-<form action="" method="POST">
+<h1>프로필 수정</h1>
+<form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {% bootstrap_form form %}
     {% bootstrap_button button_type="submit" content="OK" %}
 </form>
-    </div>
 </div>
+</div>
+
 {% endblock body %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="container m-auto">
-    <div class="col-md-8" style="float: none; margin:0 auto;">
-
-
-
-
-
-
-

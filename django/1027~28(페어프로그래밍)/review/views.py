@@ -46,7 +46,7 @@ def update(request, pk):
     review = Review.objects.get(pk=pk)
     if request.user == review.user:
         if request.method == "POST":
-            review_form = ReviewForm(request.POSt, instance=review)
+            review_form = ReviewForm(request.POST, instance=review)
             if review_form.is_valid():
                 review_form.save()
                 return redirect("review:detail", review.pk)

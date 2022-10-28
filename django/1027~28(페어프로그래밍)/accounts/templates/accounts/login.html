@@ -1,0 +1,51 @@
+
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block body %}
+<div class="container m-auto">
+    <div class="col-md-8" style="float: none; margin:0 auto;">
+
+<h1>로그인</h1>
+
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="my-4">
+        <label for="formFile" class="form-label">프로필 이미지</label>
+        <input class="form-control" type="file" id="formFile" name="profile_image">
+      </div>
+    {% bootstrap_button button_type="submit" content="OK" %}
+</form>
+    </div>
+</div>
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container m-auto">
+    <div class="col-md-8" style="float: none; margin:0 auto;">
+
+
+
+
+
+
+

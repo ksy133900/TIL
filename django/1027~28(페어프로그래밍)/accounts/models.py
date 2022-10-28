@@ -6,3 +6,5 @@ class User(AbstractUser):
     @property
     def full_name(self):
         return f"{self.last_name}{self.first_name}"
+
+    image = models.ImageField(upload_to="review/", blank=True, null=True)
